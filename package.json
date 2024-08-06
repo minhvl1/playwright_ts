@@ -1,0 +1,29 @@
+{
+  "name": "plw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "tsc --noEmit && eslint tests/**",
+    "test-prod": "npm run pretest && ENV='prod' npx playwright test",
+    "test-staging": "npm run pretest && ENV='staging' npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@playwright/test": "^1.43.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.8.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "playwright": "^1.40.1"
+  }
+}

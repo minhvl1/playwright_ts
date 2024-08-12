@@ -25,6 +25,13 @@ test('Handle alert', async ({page}) => {
     console.log("Alert text:", alertText);
 })
 
+test('Get info', async ({demoBlazePage}) => {
+    // const productPriceLocator = await page.locator("(//div[@class='card-block'])[position()=1]//h5").textContent()
+    // console.log("Price: ", productPriceLocator)
+    const productPrice = await demoBlazePage.getProductPrice()
+    console.log("Price: ", productPrice)
+})
+
 
 
 

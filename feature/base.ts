@@ -1,14 +1,12 @@
 import {test as base} from '@playwright/test';
-import {TodoPage} from '../page/todo-page';
-import {SettingsPage} from '../page/settings-page';
-import {GooglePage} from "../page/google-page";
-import {YoutubePage} from "../page/youtube-page";
+import {TodoPage, SettingsPage, GooglePage, YoutubePage, DemoBlazePage} from '../page';
 
 type MyFixtures = {
     todoPage: TodoPage
     settingsPage: SettingsPage
     googlePage: GooglePage
     youtubePage: YoutubePage
+    demoBlazePage: DemoBlazePage
 };
 
 export const test = base.extend<MyFixtures>({
@@ -20,6 +18,16 @@ export const test = base.extend<MyFixtures>({
         await todoPage.addToDo('item2');
         await use(todoPage);
         await todoPage.removeAll();
+    },
+
+    demoBlazePage: async ({page}, use) => {
+        const demoBlazePage = new DemoBlazePage(page);
+        await demoBlazePage.log("1")
+        await demoBlazePage.log("2")
+        await demoBlazePage.log("3")
+        await use(demoBlazePage);
+        await demoBlazePage.log("4")
+        await demoBlazePage.log("5")
     },
 
     settingsPage: async ({page}, use) => {

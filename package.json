@@ -19,8 +19,10 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.8.0",
-    "typescript": "^5.5.4",
-    "typescript-eslint": "^8.0.0"
+    "typescript": "latest",
+    "typescript-eslint": "^8.0.0",
+    "checkly": "latest",
+    "ts-node": "latest"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

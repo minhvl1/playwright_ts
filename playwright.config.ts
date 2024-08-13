@@ -17,7 +17,7 @@ dotenv.config({path: path.resolve(__dirname, '..', '.env')});
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    timeout: 2 * 30 * 1000,
+    timeout: 2* 10 * 1000,
     expect: {
         timeout: 60 * 1000,
     },

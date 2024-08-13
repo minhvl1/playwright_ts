@@ -25,13 +25,18 @@ test('Handle alert', async ({page}) => {
     console.log("Alert text:", alertText);
 })
 
-test('Get info', async ({demoBlazePage}) => {
-    // const productPriceLocator = await page.locator("(//div[@class='card-block'])[position()=1]//h5").textContent()
-    // console.log("Price: ", productPriceLocator)
+test('Get info with fixture', async ({demoBlazePage}) => {
     const productPrice = await demoBlazePage.getProductPrice()
     console.log("Price: ", productPrice)
 })
 
+
+test('Specific API response', async ({demoBlazePage}) => {
+    const responsePromise = demoBlazePage.getFulfilledResponse(demoBlazePage.page)
+    const response = await responsePromise
+    const responseBody = await response.json()
+    console.log("Response body: ", responseBody)
+})
 
 
 

@@ -19,4 +19,8 @@ export class DemoBlazePage {
     async log(String: string) {
         console.log(String)
     }
+
+    async getFulfilledResponse(page: Page) {
+        return page.waitForResponse(/config/)
+    }
 }

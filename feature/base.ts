@@ -21,13 +21,13 @@ export const test = base.extend<MyFixtures>({
     },
 
     demoBlazePage: async ({page}, use) => {
-        const demoBlazePage = new DemoBlazePage(page);
-        await demoBlazePage.log("1")
-        await demoBlazePage.log("2")
-        await demoBlazePage.log("3")
-        await use(demoBlazePage);
-        await demoBlazePage.log("4")
-        await demoBlazePage.log("5")
+        // const demoBlazePage = new DemoBlazePage(page);
+        // await demoBlazePage.log("1")
+        // await demoBlazePage.log("2")
+        // await use(demoBlazePage);
+        // await demoBlazePage.log("3")
+        // await demoBlazePage.log("4")
+        await use(new DemoBlazePage(page));
     },
 
     settingsPage: async ({page}, use) => {

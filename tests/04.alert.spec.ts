@@ -6,7 +6,7 @@ test.beforeEach('Go to Demoblazer', async ({page}) => {
 })
 
 
-test('Handle alert', async ({demoBlazePage}) => {
+test('Login failed -> Handle alert', async ({demoBlazePage}) => {
     await demoBlazePage.getFulfilledResponse(demoBlazePage.page)
     await demoBlazePage.page.locator("//a[@id='login2']").click()
     await demoBlazePage.page.locator("//input[@id='loginusername']").fill("123")
@@ -23,12 +23,18 @@ test('Handle alert', async ({demoBlazePage}) => {
 
     const alertText = await dialogPromise;
     console.log("Alert text:", alertText);
+})
 
+test('Login success', async ({demoBlazePage}) => {
+    // await demoBlazePage.getFulfilledResponse(demoBlazePage.page)
+    await demoBlazePage.page.locator("//a[@id='login2']").click()
     await demoBlazePage.page.locator("//input[@id='loginusername']").fill("admin")
     await demoBlazePage.page.locator("//input[@id='loginpassword']").fill("admin")
     await demoBlazePage.page.locator("//button[@onclick='logIn()']").click()
     await demoBlazePage.getLoginResponse(demoBlazePage.page)
 })
+
+
 
 test('Get info with fixture', async ({demoBlazePage}) => {
     const productPrice = await demoBlazePage.getProductPrice()

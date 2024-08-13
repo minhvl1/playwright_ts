@@ -21,6 +21,26 @@ export class DemoBlazePage {
     }
 
     async getFulfilledResponse(page: Page) {
-        return page.waitForResponse(/config/)
+        console.log("Wait for getFulfilledResponse")
+        return page.waitForResponse(async (response) => {
+            if (!response.url().includes("config")) {
+                return false
+            }
+            const responseBody = await response.json()
+            return responseBody.API_URL === "https://api.demoblaze.com"
+        })
+        // return page.waitForResponse(/config/)
+        // wait until:  responseBody.API_URL === "https://api.demoblaze.com"
+    }
+
+    async getLoginResponse(page: Page) {
+        console.log("Wait for login response")
+        return page.waitForResponse(async (response) => {
+            if (!response.url().includes("check")) {
+                return false
+            }
+            const responseBody = await response.json()
+            return responseBody.Item.username == "admin"
+        })
     }
 }

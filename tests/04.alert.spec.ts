@@ -6,15 +6,15 @@ test.beforeEach('Go to Demoblazer', async ({page}) => {
 })
 
 
-test('Handle alert', async ({page}) => {
-    await page.locator("//a[@id='login2']").click()
-    await page.locator("//input[@id='loginusername']").fill("123")
-    await page.locator("//input[@id='loginpassword']").fill("456")
-    await page.locator("//button[@onclick='logIn()']").click()
-
+test('Handle alert', async ({demoBlazePage}) => {
+    await demoBlazePage.getFulfilledResponse(demoBlazePage.page)
+    await demoBlazePage.page.locator("//a[@id='login2']").click()
+    await demoBlazePage.page.locator("//input[@id='loginusername']").fill("123")
+    await demoBlazePage.page.locator("//input[@id='loginpassword']").fill("456")
+    await demoBlazePage.page.locator("//button[@onclick='logIn()']").click()
 
     const dialogPromise = new Promise((resolve) => {
-        page.once('dialog', async dialog => {
+        demoBlazePage.page.once('dialog', async dialog => {
             const message = dialog.message();
             await dialog.dismiss();
             resolve(message);
@@ -23,6 +23,11 @@ test('Handle alert', async ({page}) => {
 
     const alertText = await dialogPromise;
     console.log("Alert text:", alertText);
+
+    await demoBlazePage.page.locator("//input[@id='loginusername']").fill("admin")
+    await demoBlazePage.page.locator("//input[@id='loginpassword']").fill("admin")
+    await demoBlazePage.page.locator("//button[@onclick='logIn()']").click()
+    await demoBlazePage.getLoginResponse(demoBlazePage.page)
 })
 
 test('Get info with fixture', async ({demoBlazePage}) => {

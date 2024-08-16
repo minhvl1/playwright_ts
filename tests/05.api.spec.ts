@@ -6,6 +6,7 @@ test('Send Get API request', async ({sendRequest}) => {
     const res = await sendRequest.reqresGetListUser()
     console.log(res)
     expect(res).toHaveProperty('data');
+    console.log(res.data.length)
     console.log(res.data[0].email)
 })
 

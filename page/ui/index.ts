@@ -3,3 +3,4 @@ export { SettingsPage } from './settings-page';
 export { GooglePage } from './google-page';
 export { YoutubePage } from './youtube-page';
 export {DemoBlazePage} from './demoBlaze-page';
+export {SendRequest} from '../api/sendRequest';

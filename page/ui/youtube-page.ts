@@ -1,5 +1,5 @@
 import {type Page, type Locator} from '@playwright/test';
-import {expect} from "../feature/base";
+import {expect} from "../../feature/base";
 
 
 export class YoutubePage {

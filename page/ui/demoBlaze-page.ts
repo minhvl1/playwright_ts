@@ -1,6 +1,5 @@
 import {type Page, type Locator} from '@playwright/test';
 
-
 export class DemoBlazePage {
     readonly page: Page
     readonly productPrice: Locator

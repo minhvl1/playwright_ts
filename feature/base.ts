@@ -1,5 +1,6 @@
-import {test as base} from '@playwright/test';
-import {TodoPage, SettingsPage, GooglePage, YoutubePage, DemoBlazePage} from '../page';
+import {test as base,expect} from '@playwright/test';
+import {TodoPage, SettingsPage, GooglePage, YoutubePage, DemoBlazePage} from '../page/ui';
+import {SendRequest} from "../page/api/sendRequest";
 
 type MyFixtures = {
     todoPage: TodoPage
@@ -7,6 +8,7 @@ type MyFixtures = {
     googlePage: GooglePage
     youtubePage: YoutubePage
     demoBlazePage: DemoBlazePage
+    sendRequest: SendRequest
 };
 
 export const test = base.extend<MyFixtures>({
@@ -42,6 +44,10 @@ export const test = base.extend<MyFixtures>({
 
     youtubePage: async ({page}, use) => {
         await use(new YoutubePage(page))
+    },
+
+    sendRequest: async ({}, use) => {
+        await use(new SendRequest())
     }
 });
 

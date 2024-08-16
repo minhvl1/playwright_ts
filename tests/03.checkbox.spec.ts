@@ -1,5 +1,5 @@
 import { test } from '../feature/base';
-import {TodoPage} from "../page/todo-page";
+import {TodoPage} from "../page/ui/todo-page";
 
 test.describe.configure({ mode: 'serial' });
 test.beforeEach('Go to google', async ({page}) => {

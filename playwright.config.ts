@@ -38,7 +38,8 @@ export default defineConfig({
         // baseURL: 'http://127.0.0.1:3000',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-        trace: 'on-first-retry',
+        // trace: 'on-first-retry',
+        trace: 'on',
         video: 'on',
         baseURL: process.env.STAGING === 'dev' ? 'http://grit-dev.dev.kincloud.io' : 'https://grit.staging.kincloud.io/',
         launchOptions: {

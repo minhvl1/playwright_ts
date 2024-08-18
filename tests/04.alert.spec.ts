@@ -23,6 +23,11 @@ test('Login failed -> Handle alert', async ({demoBlazePage}) => {
 
     const alertText = await dialogPromise;
     console.log("Alert text:", alertText);
+
+    await demoBlazePage.page.locator("//input[@id='loginusername']").fill("admin")
+    await demoBlazePage.page.locator("//input[@id='loginpassword']").fill("admin")
+    await demoBlazePage.page.locator("//button[@onclick='logIn()']").click()
+    await demoBlazePage.getLoginSuccessResponse(demoBlazePage.page)
 })
 
 test('Login success', async ({demoBlazePage}) => {
@@ -31,7 +36,7 @@ test('Login success', async ({demoBlazePage}) => {
     await demoBlazePage.page.locator("//input[@id='loginusername']").fill("admin")
     await demoBlazePage.page.locator("//input[@id='loginpassword']").fill("admin")
     await demoBlazePage.page.locator("//button[@onclick='logIn()']").click()
-    await demoBlazePage.getLoginResponse(demoBlazePage.page)
+    await demoBlazePage.loadImagesProductResponse(demoBlazePage.page)
 })
 
 

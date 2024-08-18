@@ -32,7 +32,7 @@ export class DemoBlazePage {
         // wait until:  responseBody.API_URL === "https://api.demoblaze.com"
     }
 
-    async getLoginResponse(page: Page) {
+    async getLoginSuccessResponse(page: Page) {
         console.log("Wait for login response")
         return page.waitForResponse(async (response) => {
             if (!response.url().includes("check")) {
@@ -40,6 +40,17 @@ export class DemoBlazePage {
             }
             const responseBody = await response.json()
             return responseBody.Item.username == "admin"
+        })
+    }
+
+
+    async loadImagesProductResponse(page: Page) {
+        console.log("Wait for login response")
+        return page.waitForResponse(async (response) => {
+            if (!response.url().includes("imgs")) {
+                return false
+            }
+            return true
         })
     }
 }

@@ -14,4 +14,4 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run your tests
-        run: npx playwright test home.spec.ts
+        run: npx playwright test 04.alert.spec.ts

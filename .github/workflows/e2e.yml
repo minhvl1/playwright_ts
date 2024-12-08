@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'main'
+  schedule:
+    - cron: "10 16 * * *"
 jobs:
   test-e2e:
     name: Run E2E tests

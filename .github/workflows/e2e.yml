@@ -1,7 +1,7 @@
 name: "e2e"
-on: 
-  push:
-    branches:[main]
+on:
+  branch_protection_rule:
+    types: [created, edited]
 
 jobs:
   test-e2e:

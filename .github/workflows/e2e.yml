@@ -2,7 +2,6 @@ name: "e2e"
 on:
   branch_protection_rule:
     types: [created, edited]
-
 jobs:
   test-e2e:
     name: Run E2E tests

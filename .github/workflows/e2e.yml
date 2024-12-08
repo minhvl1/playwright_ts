@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
   schedule:
-    - cron: "10 16 * * *"
+    - cron: "00 07 * * *"
 jobs:
   test-e2e:
     name: Run E2E tests

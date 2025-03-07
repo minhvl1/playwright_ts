@@ -21,7 +21,7 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run your tests
-        run: npx playwright test 02.fixture.spec.ts
+        run: npx playwright test 'tests/02.fixture.spec.ts'
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
